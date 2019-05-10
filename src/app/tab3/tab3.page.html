@@ -15,4 +15,16 @@
   <p>
     <ion-button (click)="saveFile()">Save File</ion-button>
   </p>
+  
+  <p>
+    <ion-button (click)="showData()">Show Data</ion-button>
+  </p>
+  
+  <div *ngIf="items">
+    <h3>Data</h3>
+    <ul>
+      <li *ngFor="let item of items">{{ item.words }}</li>
+    </ul>
+  </div>
+  
 </ion-content>

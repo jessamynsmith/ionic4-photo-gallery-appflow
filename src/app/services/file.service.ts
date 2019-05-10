@@ -48,4 +48,13 @@ export class FileService {
       }
   }
   
+  public getDataFromLocalFile(dirName: string, filename: string): any {
+      let filePath = this.file.dataDirectory;
+      if (filePath) {
+          filePath += dirName + '/';
+          
+          return this.file.readAsText(filePath, filename);
+      }
+  }
+  
 }

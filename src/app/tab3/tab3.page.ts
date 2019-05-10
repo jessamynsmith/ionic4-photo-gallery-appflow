@@ -10,6 +10,7 @@ import { FileService } from '../services/file.service';
 export class Tab3Page {
   private fileData: Blob;
   private fileName: string;
+  private items: any;
   
   constructor(private apiService: ApiService, private fileService: FileService) {
     this.fileName = 'pocono.zip';
@@ -23,7 +24,23 @@ export class Tab3Page {
   }
   
   saveFile() {
-      this.fileService.saveFile(this.fileName, this.fileData);
+      this.fileService.saveAndUnzipFile(this.fileName, this.fileData);
+  }
+  
+  showData() {
+    const baseFilename = this.fileName.replace('.zip', '');
+    
+    const dataPromise = this.fileService.getDataFromLocalFile(baseFilename, 'guidebook.json');
+    if (dataPromise) {
+      dataPromise.then(data => {
+        console.log('Read file data');
+        const parsedData = JSON.parse(data);
+        console.log(parsedData);
+        this.items = parsedData.areas;
+      }).catch((error) => {
+        console.log('Error retrieving data:', error);
+      });
+    }
   }
   
 }
