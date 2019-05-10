@@ -33,3 +33,6 @@ To see the app on a device, connect a device with USB and run using one of the f
 
     ionic cordova plugin add cordova-plugin-file
     npm install --save @ionic-native/file
+
+    ionic cordova plugin add cordova-plugin-zip
+    npm install --save @ionic-native/zip
