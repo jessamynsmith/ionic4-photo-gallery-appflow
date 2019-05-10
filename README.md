@@ -4,8 +4,8 @@ Ionic V4 tutorial example
 
 This app was created from the instructions at the [Ionic V4 tutorial](https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro).
 
-Development
------------
+### Development
+
 
 Ensure you have executables on path:
 
@@ -27,3 +27,9 @@ To see the app on a device, connect a device with USB and run using one of the f
 
     ionic cordova run android
     ionic cordova run ios -- --buildFlag="-UseModernBuildSystem=0"
+
+### Notes
+
+
+    ionic cordova plugin add cordova-plugin-file
+    npm install --save @ionic-native/file
